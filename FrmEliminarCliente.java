@@ -1,5 +1,7 @@
 
+import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -11,7 +13,7 @@ import javax.swing.JOptionPane;
  * @author user
  */
 public class FrmEliminarCliente extends javax.swing.JFrame {
-    
+    DefaultTableModel modelo;
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmEliminarCliente.class.getName());
     ClienteCon cliente = new ClienteCon();
     /**
@@ -34,6 +36,9 @@ public class FrmEliminarCliente extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         JTIdCliente = new javax.swing.JTextField();
         btnAceptar = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        JTDatos = new javax.swing.JTable();
+        BtnMostrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -50,38 +55,62 @@ public class FrmEliminarCliente extends javax.swing.JFrame {
         btnAceptar.setText("Aceptar");
         btnAceptar.addActionListener(this::btnAceptarActionPerformed);
 
+        JTDatos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Nombre", "Dirección"
+            }
+        ));
+        jScrollPane1.setViewportView(JTDatos);
+
+        BtnMostrar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        BtnMostrar.setText("Buscar");
+        BtnMostrar.addActionListener(this::BtnMostrarActionPerformed);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(53, Short.MAX_VALUE)
+                .addGap(56, 56, 56)
                 .addComponent(jLabel2)
-                .addGap(61, 61, 61)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(JTIdCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(58, 58, 58))
+                .addGap(57, 57, 57))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(149, 149, 149)
-                        .addComponent(btnAceptar))
+                        .addGap(130, 130, 130)
+                        .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(133, 133, 133)
-                        .addComponent(jLabel1)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(19, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(67, 67, 67)
+                .addComponent(BtnMostrar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnAceptar)
+                .addGap(75, 75, 75))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(72, 72, 72)
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(26, 26, 26)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(JTIdCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addComponent(btnAceptar)
-                .addContainerGap(93, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAceptar)
+                    .addComponent(BtnMostrar))
+                .addGap(15, 15, 15))
         );
 
         pack();
@@ -91,6 +120,38 @@ public class FrmEliminarCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_JTIdClienteActionPerformed
 
+    public void MostrarDatos(){
+        try {
+            //OBTIENE LOS VALORES DE LOS JTEXTFIELD
+            String id = JTIdCliente.getText();
+
+            //VALIDA QUE NO ESTE VACIO
+            if (id.isEmpty()) {
+                javax.swing.JOptionPane.showMessageDialog(this,
+                        "Ingrese su ID",
+                        "Error",
+                        javax.swing.JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            Cliente mostrarCliente = new Cliente(id);
+            mostrarCliente.setId(JTIdCliente.getText());
+            List<Cliente> listCl = cliente.MostrarDatos(mostrarCliente);
+            modelo = (DefaultTableModel) JTDatos.getModel();
+            Object[] ob = new Object[3];
+            for (int i = 0; i < listCl.size(); i++) {
+                ob[0] = listCl.get(i).getId();
+                ob[1] = listCl.get(i).getNombre();
+                ob[2] = listCl.get(i).getDireccion();
+                modelo.addRow(ob);
+            }
+            JTDatos.setModel(modelo);
+        } catch (Exception e) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                "Error: " + e.getMessage(),
+                "Error",
+                javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
+    }
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
         // TODO add your handling code here:
         try {
@@ -117,14 +178,22 @@ public class FrmEliminarCliente extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnAceptarActionPerformed
 
+    private void BtnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMostrarActionPerformed
+        // TODO add your handling code here:
+        MostrarDatos();
+    }//GEN-LAST:event_BtnMostrarActionPerformed
+
     /**
      * @param args the command line arguments
      */
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnMostrar;
+    private javax.swing.JTable JTDatos;
     private javax.swing.JTextField JTIdCliente;
     private javax.swing.JButton btnAceptar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

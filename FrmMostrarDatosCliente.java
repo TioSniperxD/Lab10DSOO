@@ -81,7 +81,7 @@ public class FrmMostrarDatosCliente extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Nombre", "Dirección"
+                "ID", "Nombre", "Dirección", "Cuentas"
             }
         ));
         jScrollPane1.setViewportView(JTDatos);
@@ -91,6 +91,7 @@ public class FrmMostrarDatosCliente extends javax.swing.JFrame {
         BtnMostrar.addActionListener(this::BtnMostrarActionPerformed);
 
         JTid_cliente.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        JTid_cliente.addActionListener(this::JTid_clienteActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -128,6 +129,10 @@ public class FrmMostrarDatosCliente extends javax.swing.JFrame {
         // TODO add your handling code here:
         MostrarDatos();
     }//GEN-LAST:event_BtnMostrarActionPerformed
+
+    private void JTid_clienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTid_clienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTid_clienteActionPerformed
 
     /**
      * @param args the command line arguments
