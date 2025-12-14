@@ -146,12 +146,12 @@ public class FrmMenuCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_btnHistorialActionPerformed
 
     private void btnDepositoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDepositoActionPerformed
-        FrmDepositoEmpleado pestaña = new FrmDepositoEmpleado(empleado,banco,gestor);
+        FrmDepositoEmpleado pestaña = new FrmDepositoEmpleado();
         pestaña.setVisible(true);
     }//GEN-LAST:event_btnDepositoActionPerformed
 
     private void btnRetiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetiroActionPerformed
-        FrmRetiroEmpleado pestaña = new FrmRetiroEmpleado(empleado,banco,gestor);
+        FrmRetiroEmpleado pestaña = new FrmRetiroEmpleado();
         pestaña.setVisible(true);
     }//GEN-LAST:event_btnRetiroActionPerformed
 
