@@ -40,7 +40,6 @@ public class FrmMenuEmpleado extends javax.swing.JFrame {
         btnRetiro = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         btnHistorialCuenta = new javax.swing.JButton();
-        btnVerAcciones = new javax.swing.JButton();
         btnVerClientes = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -124,9 +123,6 @@ public class FrmMenuEmpleado extends javax.swing.JFrame {
         btnHistorialCuenta.setText("Ver historial de una cuenta");
         btnHistorialCuenta.addActionListener(this::btnHistorialCuentaActionPerformed);
 
-        btnVerAcciones.setText("Ver mis acciones");
-        btnVerAcciones.addActionListener(this::btnVerAccionesActionPerformed);
-
         btnVerClientes.setText("Ver lista de clientes");
         btnVerClientes.addActionListener(this::btnVerClientesActionPerformed);
 
@@ -137,13 +133,11 @@ public class FrmMenuEmpleado extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(120, 120, 120)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnVerClientes)
-                            .addComponent(btnVerAcciones)))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(104, 104, 104)
-                        .addComponent(btnHistorialCuenta)))
+                        .addComponent(btnHistorialCuenta))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(122, 122, 122)
+                        .addComponent(btnVerClientes)))
                 .addContainerGap(115, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -151,11 +145,9 @@ public class FrmMenuEmpleado extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addComponent(btnHistorialCuenta)
-                .addGap(27, 27, 27)
-                .addComponent(btnVerAcciones)
-                .addGap(18, 18, 18)
+                .addGap(40, 40, 40)
                 .addComponent(btnVerClientes)
-                .addContainerGap(70, Short.MAX_VALUE))
+                .addContainerGap(98, Short.MAX_VALUE))
         );
 
         tabbedPaneCustom1.addTab("Varios", jPanel3);
@@ -211,11 +203,6 @@ public class FrmMenuEmpleado extends javax.swing.JFrame {
         pestaña.setVisible(true);
     }//GEN-LAST:event_btnHistorialCuentaActionPerformed
 
-    private void btnVerAccionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerAccionesActionPerformed
-        FrmMostrarAcciones pestaña = new FrmMostrarAcciones();
-        pestaña.setVisible(true);
-    }//GEN-LAST:event_btnVerAccionesActionPerformed
-
     private void btnVerClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerClientesActionPerformed
         FrmMostrarClientes pestaña = new FrmMostrarClientes();
         pestaña.setVisible(true);
@@ -232,7 +219,6 @@ public class FrmMenuEmpleado extends javax.swing.JFrame {
     private javax.swing.JButton btnHistorialCuenta;
     private javax.swing.JButton btnModificarCliente;
     private javax.swing.JButton btnRetiro;
-    private javax.swing.JButton btnVerAcciones;
     private javax.swing.JButton btnVerClientes;
     private javax.swing.JButton jButtonRegistroCliente;
     private javax.swing.JButton jButtonRegistroCuenta;

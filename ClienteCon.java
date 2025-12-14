@@ -25,8 +25,8 @@ public class ClienteCon {
             ps = con.prepareStatement(sql);
             ps.setString(1, cl.getId());
             ps.setString(2, cl.getNombre());
-            ps.setString(3, cl.getDireccion());
-            ps.setString(4, cl.getClave());
+            ps.setString(3, cl.getClave());
+            ps.setString(4, cl.getDireccion());
             ps.execute();
             return true;
         } catch (SQLException e) {

@@ -1,3 +1,7 @@
+
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -9,9 +13,30 @@
  * @author user
  */
 public class FrmMostrarEmpleados extends javax.swing.JFrame {
-    
+    EmpleadoCon empleado = new EmpleadoCon();
+    DefaultTableModel modelo = new DefaultTableModel();
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmMostrarEmpleados.class.getName());
 
+    public void ListarEmpleados(){
+        List<Empleado> listEp = empleado.ListarClientes();
+        modelo = (DefaultTableModel) JTListaEmpleado.getModel();
+        Object[] ob = new Object[3];
+        for (int i = 0; i < listEp.size(); i++) {
+            ob[0] = listEp.get(i).getId();
+            ob[1] = listEp.get(i).getNombre();
+            ob[2] = listEp.get(i).getDireccion();
+            modelo.addRow(ob);
+        }
+        JTListaEmpleado.setModel(modelo);
+    }
+    
+    public void Limpiar(){
+        for (int i = 0; i < modelo.getRowCount(); i++) {
+            modelo.removeRow(i);
+            i--;
+        }
+    }
+    
     /**
      * Creates new form FrmMostrarEmpleados
      */
@@ -29,45 +54,63 @@ public class FrmMostrarEmpleados extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        TextAreaListaEmpleados = new javax.swing.JTextArea();
+        BtnMostrarEmpleado = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        JTListaEmpleado = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setText("Lista de Empleados");
 
-        TextAreaListaEmpleados.setEditable(false);
-        TextAreaListaEmpleados.setColumns(20);
-        TextAreaListaEmpleados.setRows(5);
-        jScrollPane1.setViewportView(TextAreaListaEmpleados);
+        BtnMostrarEmpleado.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        BtnMostrarEmpleado.setText("Mostrar Empleados");
+        BtnMostrarEmpleado.addActionListener(this::BtnMostrarEmpleadoActionPerformed);
+
+        JTListaEmpleado.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID Empleado", "Nombre", "Dirección"
+            }
+        ));
+        jScrollPane2.setViewportView(JTListaEmpleado);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 579, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(91, 91, 91)
-                        .addComponent(jLabel1)))
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BtnMostrarEmpleado)))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addGap(17, 17, 17)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(BtnMostrarEmpleado))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BtnMostrarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMostrarEmpleadoActionPerformed
+        // TODO add your handling code here:
+        Limpiar();
+        ListarEmpleados();
+    }//GEN-LAST:event_BtnMostrarEmpleadoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -75,8 +118,9 @@ public class FrmMostrarEmpleados extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextArea TextAreaListaEmpleados;
+    private javax.swing.JButton BtnMostrarEmpleado;
+    private javax.swing.JTable JTListaEmpleado;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 }

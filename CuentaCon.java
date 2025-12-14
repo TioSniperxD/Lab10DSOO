@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 /**
  *
@@ -12,6 +14,7 @@ public class CuentaCon {
     Conexion cn = new Conexion();
     Connection con;
     PreparedStatement ps;
+    ResultSet rs;
     
     public boolean RegistrarCuenta(CuentaCliente cc){
         String sql = "INSERT INTO cuenta VALUES (?,?,?)";
@@ -77,5 +80,31 @@ public class CuentaCon {
                 System.out.println(e.toString());
             }
         }
+    }
+    
+    public List MostrarSaldo(Cuenta ct) {
+        List<Cuenta> mostrar = new ArrayList();
+        String sql = "SELECT * FROM cuenta WHERE id_cuenta = ?";
+        try {
+            con = cn.contectar();
+            ps = con.prepareStatement(sql);
+            ps.setString(1, ct.getIdCuenta());
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                Cuenta saldo = new Cuenta();
+                saldo.setIdCuenta(rs.getString("id_cuenta"));
+                saldo.setSaldo(rs.getDouble("saldo"));
+                mostrar.add(saldo);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.toString());
+        } finally {
+            try {
+                con.close();
+            } catch (SQLException e) {
+                System.out.println(e.toString());
+            }
+        }
+        return mostrar;
     }
 }

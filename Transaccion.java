@@ -3,28 +3,33 @@ import java.util.Date;
 public class Transaccion {
     protected String idCliente;
     protected String idCuenta;
-    protected String idEmpleado;
     protected double monto;
     protected String tipo;
     protected String fecha;
     protected Cuenta cuenta;
 
     //CONSTRUCTOR CON EMPLEADO
-    public Transaccion(String idCliente, String idCuenta, double monto, String tipo, String idEmpleado) {
+    public Transaccion(String idCliente, String idCuenta, double monto, String tipo) {
         this.idCliente = idCliente;
         this.idCuenta = idCuenta;
-        this.idEmpleado = idEmpleado;
         this.monto = monto;
         this.tipo = tipo;
         this.fecha = generarFecha();
         this.cuenta = null;
     }
 
-    //CONSTRUCTOR SIN EMPLEADO
-    public Transaccion(String idCliente, String idCuenta, double monto, String tipo) {
-        this(idCliente, idCuenta, monto, tipo, "N/A");
+    public Transaccion() {
     }
 
+    public Transaccion(String idCuenta) {
+        this.idCuenta = idCuenta;
+    }
+
+    public Transaccion(String idCliente, String idCuenta) {
+        this.idCliente = idCliente;
+        this.idCuenta = idCuenta;
+    }
+    
     //GENERA LA FECHA (Apr 17 12:34:56)
     private String generarFecha() {
         return new Date().toString().substring(4, 19);
@@ -55,8 +60,48 @@ public class Transaccion {
         return idCuenta;
     }
 
-    public String getIdEmpleado() {
-        return idEmpleado;
+    public void setIdCuenta(String idCuenta) {
+        this.idCuenta = idCuenta;
+    }
+
+    public String getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(String idCliente) {
+        this.idCliente = idCliente;
+    }
+
+    public double getMonto() {
+        return monto;
+    }
+
+    public void setMonto(double monto) {
+        this.monto = monto;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    public Cuenta getCuenta() {
+        return cuenta;
+    }
+
+    public void setCuenta(Cuenta cuenta) {
+        this.cuenta = cuenta;
     }
 
     @Override
@@ -64,7 +109,6 @@ public class Transaccion {
         return tipo + " | Cliente: " + idCliente +
                " | Cuenta: " + idCuenta +
                " | Monto: " + monto +
-               " | Empleado: " + (idEmpleado.isEmpty() ? "No registrado" : idEmpleado) +
                " | Fecha: " + fecha;
     }
 }

@@ -42,7 +42,6 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
         btnEliminarCliente = new javax.swing.JButton();
         btnEliminarEmpleado = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
-        btnMostrarUsuarios = new javax.swing.JButton();
         btnMostrarClientes = new javax.swing.JButton();
         btnMostrarEmpleados = new javax.swing.JButton();
         btnMostrarTransacciones = new javax.swing.JButton();
@@ -147,9 +146,6 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
 
         tabbedPaneCustom1.addTab("Eliminar", jPanel4);
 
-        btnMostrarUsuarios.setText("Mostrar usuarios");
-        btnMostrarUsuarios.addActionListener(this::btnMostrarUsuariosActionPerformed);
-
         btnMostrarClientes.setText("Mostrar clientes");
         btnMostrarClientes.addActionListener(this::btnMostrarClientesActionPerformed);
 
@@ -163,32 +159,24 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(71, 71, 71)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnMostrarUsuarios)
-                    .addComponent(btnMostrarEmpleados))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addComponent(btnMostrarTransacciones)
-                        .addGap(50, 50, 50))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addComponent(btnMostrarClientes)
-                        .addGap(65, 65, 65))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addContainerGap(172, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(btnMostrarEmpleados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnMostrarTransacciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnMostrarClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(151, 151, 151))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(58, 58, 58)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnMostrarUsuarios)
-                    .addComponent(btnMostrarClientes))
-                .addGap(41, 41, 41)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnMostrarEmpleados)
-                    .addComponent(btnMostrarTransacciones))
-                .addContainerGap(134, Short.MAX_VALUE))
+                .addGap(61, 61, 61)
+                .addComponent(btnMostrarClientes)
+                .addGap(27, 27, 27)
+                .addComponent(btnMostrarEmpleados)
+                .addGap(18, 18, 18)
+                .addComponent(btnMostrarTransacciones)
+                .addContainerGap(104, Short.MAX_VALUE))
         );
 
         tabbedPaneCustom1.addTab("Mostrar", jPanel5);
@@ -254,11 +242,6 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
         pestaña.setVisible(true);
     }//GEN-LAST:event_btnEliminarClienteActionPerformed
 
-    private void btnMostrarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarUsuariosActionPerformed
-        FrmMostrarUsuarios pestaña = new FrmMostrarUsuarios();
-        pestaña.setVisible(true);
-    }//GEN-LAST:event_btnMostrarUsuariosActionPerformed
-
     private void btnMostrarClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarClientesActionPerformed
         FrmMostrarClientes pestaña = new FrmMostrarClientes();
         pestaña.setVisible(true);
@@ -287,7 +270,6 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
     private javax.swing.JButton btnMostrarClientes;
     private javax.swing.JButton btnMostrarEmpleados;
     private javax.swing.JButton btnMostrarTransacciones;
-    private javax.swing.JButton btnMostrarUsuarios;
     private javax.swing.JButton jButtonRegistarEmpleado;
     private javax.swing.JButton jButtonRegistrarCliente;
     private javax.swing.JButton jButtonRegistrarCuenta;

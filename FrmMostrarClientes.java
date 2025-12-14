@@ -14,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class FrmMostrarClientes extends javax.swing.JFrame {
     ClienteCon cliente = new ClienteCon();
-    DefaultTableModel modelo;
+    DefaultTableModel modelo = new DefaultTableModel();
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmMostrarClientes.class.getName());
     
     public void ListarClientes(){
@@ -28,6 +28,13 @@ public class FrmMostrarClientes extends javax.swing.JFrame {
             modelo.addRow(ob);
         }
         JTListaClientes.setModel(modelo);
+    }
+    
+    public void Limpiar(){
+        for (int i = 0; i < modelo.getRowCount(); i++) {
+            modelo.removeRow(i);
+            i--;
+        }
     }
     /**
      * Creates new form FrmMostrarClientes
@@ -100,6 +107,7 @@ public class FrmMostrarClientes extends javax.swing.JFrame {
 
     private void BtnMostrarClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMostrarClientesActionPerformed
         // TODO add your handling code here:
+        Limpiar();
         ListarClientes();
     }//GEN-LAST:event_BtnMostrarClientesActionPerformed
 

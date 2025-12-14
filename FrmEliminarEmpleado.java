@@ -1,3 +1,8 @@
+
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -8,7 +13,7 @@
  * @author user
  */
 public class FrmEliminarEmpleado extends javax.swing.JFrame {
-    
+    DefaultTableModel modelo;
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmEliminarEmpleado.class.getName());
 
     /**
@@ -17,6 +22,7 @@ public class FrmEliminarEmpleado extends javax.swing.JFrame {
     public FrmEliminarEmpleado() {
         initComponents();
     }
+    EmpleadoCon empleado = new EmpleadoCon();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -31,6 +37,9 @@ public class FrmEliminarEmpleado extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         JTIdEmpleado = new javax.swing.JTextField();
         btnAceptar = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        JTDatos1 = new javax.swing.JTable();
+        BtnMostrar1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -47,37 +56,61 @@ public class FrmEliminarEmpleado extends javax.swing.JFrame {
         btnAceptar.setText("Aceptar");
         btnAceptar.addActionListener(this::btnAceptarActionPerformed);
 
+        JTDatos1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Nombre", "Dirección"
+            }
+        ));
+        jScrollPane2.setViewportView(JTDatos1);
+
+        BtnMostrar1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        BtnMostrar1.setText("Buscar");
+        BtnMostrar1.addActionListener(this::BtnMostrar1ActionPerformed);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
+                .addGap(46, 46, 46)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(JTIdEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(58, 58, 58))
+                .addGap(30, 30, 30))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(113, 113, 113))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(149, 149, 149)
+                .addGap(114, 114, 114))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(74, 74, 74)
+                .addComponent(BtnMostrar1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnAceptar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(74, 74, 74))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(72, 72, 72)
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(26, 26, 26)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(JTIdEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addComponent(btnAceptar)
-                .addContainerGap(76, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
+                .addGap(14, 14, 14)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAceptar)
+                    .addComponent(BtnMostrar1))
+                .addContainerGap())
         );
 
         pack();
@@ -86,19 +119,81 @@ public class FrmEliminarEmpleado extends javax.swing.JFrame {
     private void JTIdEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTIdEmpleadoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JTIdEmpleadoActionPerformed
+    
+    public void MostrarDatos(){
+        try {
+            //OBTIENE LOS VALORES DE LOS JTEXTFIELD
+            String id = JTIdEmpleado.getText();
 
+            //VALIDA QUE NO ESTE VACIO
+            if (id.isEmpty()) {
+                javax.swing.JOptionPane.showMessageDialog(this,
+                        "Ingrese su ID",
+                        "Error",
+                        javax.swing.JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            Empleado mostrarEmpleado = new Empleado(id);
+            mostrarEmpleado.setId(JTIdEmpleado.getText());
+            List<Empleado> listEm = empleado.MostrarDatos(mostrarEmpleado);
+            modelo = (DefaultTableModel) JTDatos1.getModel();
+            Object[] ob = new Object[3];
+            for (int i = 0; i < listEm.size(); i++) {
+                ob[0] = listEm.get(i).getId();
+                ob[1] = listEm.get(i).getNombre();
+                ob[2] = listEm.get(i).getDireccion();
+                modelo.addRow(ob);
+            }
+            JTDatos1.setModel(modelo);
+        } catch (Exception e) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                "Error: " + e.getMessage(),
+                "Error",
+                javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
+    }
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
         // TODO add your handling code here:
+        try {
+            String idEmpleado = JTIdEmpleado.getText();
+            
+            if (idEmpleado.isEmpty()) {
+                javax.swing.JOptionPane.showMessageDialog(this,
+                        "El campo es obligatorio",
+                        "Error",
+                        javax.swing.JOptionPane.ERROR_MESSAGE);
+                return;
+            }else {
+                int pregunta = JOptionPane.showConfirmDialog(null, "Esta seguro de eliminar al empleado?");
+                if (pregunta == 0) {
+                    empleado.EliminarEmpleado(idEmpleado);
+                    JTIdEmpleado.setText("");
+                }
+            }
+        } catch (Exception ex) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "Error: " + ex.getMessage(),
+                    "Error del Sistema",
+                    javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnAceptarActionPerformed
+
+    private void BtnMostrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnMostrar1ActionPerformed
+        // TODO add your handling code here:
+        MostrarDatos();
+    }//GEN-LAST:event_BtnMostrar1ActionPerformed
 
     /**
      * @param args the command line arguments
      */
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnMostrar1;
+    private javax.swing.JTable JTDatos1;
     private javax.swing.JTextField JTIdEmpleado;
     private javax.swing.JButton btnAceptar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 }

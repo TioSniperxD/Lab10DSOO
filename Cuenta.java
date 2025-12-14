@@ -14,6 +14,15 @@ public class Cuenta {
         this.transacciones = new ArrayList<>();
     }
 
+    public Cuenta() {
+    }
+
+    public Cuenta(String idCuenta) {
+        this.idCuenta = idCuenta;
+    }
+    
+    
+
     //CONSTRUCTOR SOBRECARGADO
     public Cuenta(String idCuenta, boolean tipoCuenta) {
         this.idCuenta = idCuenta;

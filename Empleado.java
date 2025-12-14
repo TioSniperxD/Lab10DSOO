@@ -4,6 +4,11 @@ public class Empleado extends Persona {
     // Atributo
     private ArrayList<String> acciones;
 
+    public Empleado() {
+    }
+    public Empleado(String id) {
+        super(id);
+    }
     // Constructor
     public Empleado(String nombre, String id, String direccion, String clave) {
         super(nombre, id, direccion, clave);

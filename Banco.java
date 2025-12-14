@@ -64,7 +64,7 @@ public class Banco {
         if (esOperacionValida(idCliente, idCuenta, empleadoSesion)) {
             Cuenta cuenta = buscarCuentaDeCliente(idCliente, idCuenta); //Busca la cuenta del cliente con los ID
             if (cuenta != null) {
-                Deposito deposito = new Deposito(idCliente, idCuenta, monto, empleadoSesion.getId()); // Crea un nuevo objeto de la clase Deposito
+                Deposito deposito = new Deposito(idCliente, idCuenta, monto); // Crea un nuevo objeto de la clase Deposito
                 if (deposito.procesar(cuenta)) { // Procesa el deposito
                     registrarTransaccion(deposito, empleadoSesion, "Depósito de " + monto);  // Guarda el movimiento en el historial del empleado
                     System.out.println("Depósito exitoso. Nuevo saldo: " + cuenta.getSaldo());
@@ -84,7 +84,7 @@ public class Banco {
         if (esOperacionValida(idCliente, idCuenta, empleadoSesion)) {
             Cuenta cuenta = buscarCuentaDeCliente(idCliente, idCuenta); //Busca la cuenta del cliente con los ID
             if (cuenta != null) {
-                Retiro retiro = new Retiro(idCliente, idCuenta, monto, empleadoSesion.getId()); // Crea un nuevo objeto de la clase Retiro
+                Retiro retiro = new Retiro(idCliente, idCuenta, monto); // Crea un nuevo objeto de la clase Retiro
                 if (retiro.procesar(cuenta)) {
                     registrarTransaccion(retiro, empleadoSesion, "Retiro de " + monto); // Guarda el movimiento en el historial del empleado
                     System.out.println("Retiro exitoso. Nuevo saldo: " + cuenta.getSaldo());

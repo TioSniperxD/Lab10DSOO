@@ -207,6 +207,7 @@ public class JFrameRegistrarCliente extends javax.swing.JFrame {
             JTNombre.setText("");
             JTId.setText("");
             JTDireccion.setText("");
+            JTClave.setText("");
             JTNombre.requestFocus();
 
         } catch (IllegalArgumentException ex) {

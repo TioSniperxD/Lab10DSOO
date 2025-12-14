@@ -2,7 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
+import java.util.List;
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author Emerson
@@ -10,7 +12,8 @@ import javax.swing.*;
 public class JFrameConsultaDeSaldo extends javax.swing.JFrame {
     private UsuarioCliente cliente;
     private Banco banco;
-    
+    DefaultTableModel modelo = new DefaultTableModel();
+    CuentaCon cuenta = new CuentaCon();
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(JFrameConsultaDeSaldo.class.getName());
     
     /**
@@ -20,6 +23,45 @@ public class JFrameConsultaDeSaldo extends javax.swing.JFrame {
         initComponents();
         this.banco = banco;
         this.cliente=cliente;
+    }
+    
+    public void Limpiar(){
+        for (int i = 0; i < modelo.getRowCount(); i++) {
+            modelo.removeRow(i);
+            i--;
+        }
+    }
+    
+    public void MostrarSaldo(){
+        try {
+            //OBTIENE LOS VALORES DE LOS JTEXTFIELD
+            String idCuenta = txtNumeroCuenta.getText();
+
+            //VALIDA QUE NO ESTE VACIO
+            if (idCuenta.isEmpty()) {
+                javax.swing.JOptionPane.showMessageDialog(this,
+                        "Ingrese el ID de la cuenta",
+                        "Error",
+                        javax.swing.JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            Cuenta mostrarSaldo = new Cuenta(idCuenta);
+            mostrarSaldo.setIdCuenta(idCuenta);
+            List<Cuenta> listaSaldo = cuenta.MostrarSaldo(mostrarSaldo);
+            modelo = (DefaultTableModel) JTSaldo.getModel();
+            Object[] ob = new Object[5];
+            for (int i = 0; i < listaSaldo.size(); i++) {
+                ob[0] = listaSaldo.get(i).getIdCuenta();
+                ob[1] = listaSaldo.get(i).getSaldo();
+                modelo.addRow(ob);
+            }
+            JTSaldo.setModel(modelo);
+        } catch (Exception e) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                "Error: " + e.getMessage(),
+                "Error",
+                javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     /**
@@ -34,9 +76,9 @@ public class JFrameConsultaDeSaldo extends javax.swing.JFrame {
         JLabel = new javax.swing.JLabel();
         txtNumeroCuenta = new javax.swing.JTextField();
         btnConsultar = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        textResultado = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        JTSaldo = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -45,85 +87,59 @@ public class JFrameConsultaDeSaldo extends javax.swing.JFrame {
         btnConsultar.setText("Ver Saldo");
         btnConsultar.addActionListener(this::btnConsultarActionPerformed);
 
-        textResultado.setColumns(20);
-        textResultado.setRows(5);
-        jScrollPane1.setViewportView(textResultado);
-
         jLabel1.setText("Consulta de saldo");
+
+        JTSaldo.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID Cuenta", "Monto"
+            }
+        ));
+        jScrollPane2.setViewportView(JTSaldo);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnConsultar)
-                .addGap(137, 137, 137))
-            .addComponent(jScrollPane1)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
                         .addComponent(JLabel)
                         .addGap(18, 18, 18)
-                        .addComponent(txtNumeroCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(144, 144, 144)
-                        .addComponent(jLabel1)))
-                .addContainerGap(36, Short.MAX_VALUE))
+                        .addComponent(txtNumeroCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addComponent(btnConsultar)
+                .addContainerGap(49, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(20, 20, 20)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtNumeroCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JLabel)
-                    .addComponent(txtNumeroCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnConsultar))
                 .addGap(18, 18, 18)
-                .addComponent(btnConsultar)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
-        try {
-
-        // Buscar cliente
-        Cliente clienteEncontrado = banco.buscarCliente(cliente.getIdCliente());
-
-        if (clienteEncontrado == null) {
-            JOptionPane.showMessageDialog(this,
-                    "Cliente no encontrado.",
-                    "Error",
-                    JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-
-        // Obtener cuenta
-        Cuenta cuenta = clienteEncontrado.getCuenta();
-
-        if (cuenta == null) {
-            JOptionPane.showMessageDialog(this,
-                    "La cuenta no existe o no está registrada.",
-                    "Error",
-                    JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-
-        // Mostrar historial en el textArea
-        textResultado.setText("Saldo: " + cuenta.getSaldo());
-
-    } catch (Exception ex) {
-        JOptionPane.showMessageDialog(this,
-                "Ocurrió un error inesperado:\n" + ex.getMessage(),
-                "Error del Sistema",
-                JOptionPane.ERROR_MESSAGE);
-    }
+        Limpiar();
+        MostrarSaldo();
     }//GEN-LAST:event_btnConsultarActionPerformed
 
     /**
@@ -133,10 +149,10 @@ public class JFrameConsultaDeSaldo extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel JLabel;
+    private javax.swing.JTable JTSaldo;
     private javax.swing.JButton btnConsultar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea textResultado;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField txtNumeroCuenta;
     // End of variables declaration//GEN-END:variables
 }

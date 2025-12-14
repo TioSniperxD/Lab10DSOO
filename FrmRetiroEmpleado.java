@@ -16,6 +16,7 @@ public class FrmRetiroEmpleado extends javax.swing.JFrame {
     private Banco banco;
     private GestorUsuarios gestor;
     CuentaCon cu = new CuentaCon();
+    TransaccionCon tc = new TransaccionCon();
     /**
      * Creates new form FrmDeposito
      */
@@ -170,6 +171,13 @@ public class FrmRetiroEmpleado extends javax.swing.JFrame {
             nuevoDeposito.setSaldo(monto);
             cu.Retiro(nuevoDeposito);
             JOptionPane.showMessageDialog(null, "Retiro registrado");
+            
+            Transaccion nuevaTransaccion = new Transaccion(idCliente, idCuenta, monto, "Retiro");
+            nuevaTransaccion.setIdCliente(idCliente);
+            nuevaTransaccion.setIdCuenta(idCuenta);
+            nuevaTransaccion.setMonto(monto);
+            nuevaTransaccion.setTipo("Retiro");
+            tc.RegistrarTransaccion(nuevaTransaccion);
             
         } else {
             javax.swing.JOptionPane.showMessageDialog(this, "El monto debe ser positivo.");

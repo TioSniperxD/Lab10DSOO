@@ -6,9 +6,6 @@ public class Deposito extends Transaccion {
     }
 
     //CONSTRUCTOR CON EMPLEADO
-    public Deposito(String idCliente, String idCuenta, double monto, String idEmpleado) {
-        super(idCliente, idCuenta, monto, "Depósito", idEmpleado);
-    }
 
     //VERIFICA LA CUENTA
     private boolean cuentaValida(Cuenta cuenta) {
