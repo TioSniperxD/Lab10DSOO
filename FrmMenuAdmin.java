@@ -35,148 +35,219 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
         jButtonRegistrarCliente = new javax.swing.JButton();
         jButtonRegistarEmpleado = new javax.swing.JButton();
         jButtonRegistrarCuenta = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         btnModificarEmpleado = new javax.swing.JButton();
         btnModificarCliente = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         btnEliminarCliente = new javax.swing.JButton();
         btnEliminarEmpleado = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         btnMostrarClientes = new javax.swing.JButton();
         btnMostrarEmpleados = new javax.swing.JButton();
         btnMostrarTransacciones = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        tabbedPaneCustom1.setBackground(new java.awt.Color(204, 204, 204));
+
+        jPanel2.setBackground(new java.awt.Color(123, 3, 35));
+
+        jButtonRegistrarCliente.setBackground(new java.awt.Color(255, 213, 217));
+        jButtonRegistrarCliente.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButtonRegistrarCliente.setForeground(new java.awt.Color(102, 0, 0));
         jButtonRegistrarCliente.setText("Registar Cliente");
         jButtonRegistrarCliente.addActionListener(this::jButtonRegistrarClienteActionPerformed);
 
+        jButtonRegistarEmpleado.setBackground(new java.awt.Color(255, 213, 217));
+        jButtonRegistarEmpleado.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButtonRegistarEmpleado.setForeground(new java.awt.Color(102, 0, 0));
         jButtonRegistarEmpleado.setText("Registar Empleado");
         jButtonRegistarEmpleado.addActionListener(this::jButtonRegistarEmpleadoActionPerformed);
 
+        jButtonRegistrarCuenta.setBackground(new java.awt.Color(255, 213, 217));
+        jButtonRegistrarCuenta.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButtonRegistrarCuenta.setForeground(new java.awt.Color(102, 0, 0));
         jButtonRegistrarCuenta.setText("Registar Cuenta a Cliente");
         jButtonRegistrarCuenta.addActionListener(this::jButtonRegistrarCuentaActionPerformed);
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes1/laptop (1).png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(171, 171, 171)
-                        .addComponent(jButtonRegistrarCliente))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(163, 163, 163)
-                        .addComponent(jButtonRegistarEmpleado))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(148, 148, 148)
-                        .addComponent(jButtonRegistrarCuenta)))
-                .addContainerGap(159, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 234, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jButtonRegistrarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonRegistarEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonRegistrarCuenta, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE))
+                .addGap(42, 42, 42))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addComponent(jButtonRegistrarCliente)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButtonRegistarEmpleado)
-                .addGap(18, 18, 18)
-                .addComponent(jButtonRegistrarCuenta)
-                .addContainerGap(136, Short.MAX_VALUE))
+                .addContainerGap(88, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jButtonRegistrarCliente)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonRegistarEmpleado)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonRegistrarCuenta)
+                        .addGap(88, 88, 88))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(37, 37, 37))))
         );
 
         tabbedPaneCustom1.addTab("Registrar", jPanel2);
 
+        jPanel3.setBackground(new java.awt.Color(123, 3, 35));
+
+        btnModificarEmpleado.setBackground(new java.awt.Color(255, 213, 217));
+        btnModificarEmpleado.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnModificarEmpleado.setForeground(new java.awt.Color(102, 0, 0));
         btnModificarEmpleado.setText("Modificar empleado (por ID)");
         btnModificarEmpleado.addActionListener(this::btnModificarEmpleadoActionPerformed);
 
+        btnModificarCliente.setBackground(new java.awt.Color(255, 213, 217));
+        btnModificarCliente.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnModificarCliente.setForeground(new java.awt.Color(102, 0, 0));
         btnModificarCliente.setText("Modificar cliente (por ID)");
         btnModificarCliente.addActionListener(this::btnModificarClienteActionPerformed);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes1/ardillaBuscando (1).png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(43, 43, 43)
+                .addContainerGap(33, Short.MAX_VALUE)
                 .addComponent(btnModificarCliente)
-                .addGap(41, 41, 41)
+                .addGap(28, 28, 28)
                 .addComponent(btnModificarEmpleado)
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addGap(28, 28, 28))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(130, 130, 130)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(98, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(53, 53, 53)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnModificarEmpleado)
-                    .addComponent(btnModificarCliente))
-                .addGap(158, 158, 158))
+                    .addComponent(btnModificarCliente)
+                    .addComponent(btnModificarEmpleado))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         tabbedPaneCustom1.addTab("Modificar", jPanel3);
 
+        jPanel4.setBackground(new java.awt.Color(123, 3, 35));
+
+        btnEliminarCliente.setBackground(new java.awt.Color(255, 213, 217));
+        btnEliminarCliente.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnEliminarCliente.setForeground(new java.awt.Color(102, 0, 0));
         btnEliminarCliente.setText("Eliminar cliente (por ID)");
         btnEliminarCliente.addActionListener(this::btnEliminarClienteActionPerformed);
 
+        btnEliminarEmpleado.setBackground(new java.awt.Color(255, 213, 217));
+        btnEliminarEmpleado.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnEliminarEmpleado.setForeground(new java.awt.Color(102, 0, 0));
         btnEliminarEmpleado.setText("Eliminar empleado (por ID)");
         btnEliminarEmpleado.addActionListener(this::btnEliminarEmpleadoActionPerformed);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes1/ardillaBuscando (1).png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
+                .addGap(35, 35, 35)
                 .addComponent(btnEliminarCliente)
-                .addGap(57, 57, 57)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addComponent(btnEliminarEmpleado)
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addGap(31, 31, 31))
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(131, 131, 131)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(115, 115, 115)
+                .addGap(51, 51, 51)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnEliminarEmpleado)
-                    .addComponent(btnEliminarCliente))
-                .addContainerGap(141, Short.MAX_VALUE))
+                    .addComponent(btnEliminarCliente)
+                    .addComponent(btnEliminarEmpleado))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         tabbedPaneCustom1.addTab("Eliminar", jPanel4);
 
+        jPanel5.setBackground(new java.awt.Color(123, 3, 35));
+
+        btnMostrarClientes.setBackground(new java.awt.Color(255, 213, 217));
+        btnMostrarClientes.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnMostrarClientes.setForeground(new java.awt.Color(102, 0, 0));
         btnMostrarClientes.setText("Mostrar clientes");
         btnMostrarClientes.addActionListener(this::btnMostrarClientesActionPerformed);
 
+        btnMostrarEmpleados.setBackground(new java.awt.Color(255, 213, 217));
+        btnMostrarEmpleados.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnMostrarEmpleados.setForeground(new java.awt.Color(102, 0, 0));
         btnMostrarEmpleados.setText("Mostrar empleados");
         btnMostrarEmpleados.addActionListener(this::btnMostrarEmpleadosActionPerformed);
 
+        btnMostrarTransacciones.setBackground(new java.awt.Color(255, 213, 217));
+        btnMostrarTransacciones.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnMostrarTransacciones.setForeground(new java.awt.Color(102, 0, 0));
         btnMostrarTransacciones.setText("Mostrar transacciones");
         btnMostrarTransacciones.addActionListener(this::btnMostrarTransaccionesActionPerformed);
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes1/logo.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(172, Short.MAX_VALUE)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(btnMostrarEmpleados, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnMostrarTransacciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnMostrarClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(151, 151, 151))
+                .addContainerGap(171, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnMostrarTransacciones)
+                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnMostrarClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnMostrarEmpleados, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(160, 160, 160))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(61, 61, 61)
+                .addContainerGap(15, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnMostrarClientes)
-                .addGap(27, 27, 27)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnMostrarEmpleados)
                 .addGap(18, 18, 18)
                 .addComponent(btnMostrarTransacciones)
-                .addContainerGap(104, Short.MAX_VALUE))
+                .addGap(48, 48, 48))
         );
 
         tabbedPaneCustom1.addTab("Mostrar", jPanel5);
@@ -273,6 +344,10 @@ public class FrmMenuAdmin extends javax.swing.JFrame {
     private javax.swing.JButton jButtonRegistarEmpleado;
     private javax.swing.JButton jButtonRegistrarCliente;
     private javax.swing.JButton jButtonRegistrarCuenta;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

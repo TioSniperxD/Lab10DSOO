@@ -38,21 +38,37 @@ public class FrmMenuEmpleado extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         btnDeposito = new javax.swing.JButton();
         btnRetiro = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         btnHistorialCuenta = new javax.swing.JButton();
         btnVerClientes = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(123, 3, 35));
+
+        jButtonRegistroCliente.setBackground(new java.awt.Color(255, 213, 217));
+        jButtonRegistroCliente.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButtonRegistroCliente.setForeground(new java.awt.Color(102, 0, 0));
         jButtonRegistroCliente.setText("Registar Cliente");
         jButtonRegistroCliente.addActionListener(this::jButtonRegistroClienteActionPerformed);
 
+        btnModificarCliente.setBackground(new java.awt.Color(255, 213, 217));
+        btnModificarCliente.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnModificarCliente.setForeground(new java.awt.Color(102, 0, 0));
         btnModificarCliente.setText("Modificar cliente");
         btnModificarCliente.addActionListener(this::btnModificarClienteActionPerformed);
 
+        btnEliminarCliente.setBackground(new java.awt.Color(255, 213, 217));
+        btnEliminarCliente.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnEliminarCliente.setForeground(new java.awt.Color(102, 0, 0));
         btnEliminarCliente.setText("Eliminar cliente");
         btnEliminarCliente.addActionListener(this::btnEliminarClienteActionPerformed);
 
+        jButtonRegistroCuenta.setBackground(new java.awt.Color(255, 213, 217));
+        jButtonRegistroCuenta.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButtonRegistroCuenta.setForeground(new java.awt.Color(102, 0, 0));
         jButtonRegistroCuenta.setText("Registrar cuenta a cliente");
         jButtonRegistroCuenta.addActionListener(this::jButtonRegistroCuentaActionPerformed);
 
@@ -60,71 +76,98 @@ public class FrmMenuEmpleado extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(120, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButtonRegistroCuenta)
-                        .addGap(107, 107, 107))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(103, 103, 103)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnModificarCliente)
-                            .addComponent(btnEliminarCliente)
-                            .addComponent(jButtonRegistroCliente))
-                        .addGap(127, 127, 127))))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(btnEliminarCliente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnModificarCliente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE))
+                            .addComponent(jButtonRegistroCuenta)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(95, 95, 95)
+                        .addComponent(jButtonRegistroCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 109, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addGap(55, 55, 55)
                 .addComponent(jButtonRegistroCliente)
                 .addGap(18, 18, 18)
                 .addComponent(btnModificarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnEliminarCliente)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jButtonRegistroCuenta)
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
 
         tabbedPaneCustom1.addTab("Gestion", jPanel1);
 
+        jPanel2.setBackground(new java.awt.Color(123, 3, 35));
+
+        btnDeposito.setBackground(new java.awt.Color(255, 213, 217));
+        btnDeposito.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnDeposito.setForeground(new java.awt.Color(102, 0, 0));
         btnDeposito.setText("Procesar depósito");
         btnDeposito.addActionListener(this::btnDepositoActionPerformed);
 
+        btnRetiro.setBackground(new java.awt.Color(255, 213, 217));
+        btnRetiro.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnRetiro.setForeground(new java.awt.Color(102, 0, 0));
         btnRetiro.setText("Procesar retiro");
         btnRetiro.addActionListener(this::btnRetiroActionPerformed);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes1/tranferir.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(153, 153, 153)
-                .addComponent(btnRetiro)
-                .addContainerGap(130, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnDeposito)
-                .addGap(121, 121, 121))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(134, 134, 134)
+                        .addComponent(btnRetiro))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(125, 125, 125)
+                        .addComponent(btnDeposito))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(72, 72, 72)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(89, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(48, 48, 48)
+                .addGap(34, 34, 34)
                 .addComponent(btnDeposito)
-                .addGap(46, 46, 46)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnRetiro)
-                .addContainerGap(78, Short.MAX_VALUE))
+                .addGap(29, 29, 29)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         tabbedPaneCustom1.addTab("Transaccion", jPanel2);
 
+        jPanel3.setBackground(new java.awt.Color(123, 3, 35));
+
+        btnHistorialCuenta.setBackground(new java.awt.Color(255, 213, 217));
+        btnHistorialCuenta.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnHistorialCuenta.setForeground(new java.awt.Color(102, 0, 0));
         btnHistorialCuenta.setText("Ver historial de una cuenta");
         btnHistorialCuenta.addActionListener(this::btnHistorialCuentaActionPerformed);
 
+        btnVerClientes.setBackground(new java.awt.Color(255, 213, 217));
+        btnVerClientes.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnVerClientes.setForeground(new java.awt.Color(102, 0, 0));
         btnVerClientes.setText("Ver lista de clientes");
         btnVerClientes.addActionListener(this::btnVerClientesActionPerformed);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes1/ardillaBuscando (3).png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -133,21 +176,25 @@ public class FrmMenuEmpleado extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(104, 104, 104)
+                        .addGap(102, 102, 102)
                         .addComponent(btnHistorialCuenta))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(122, 122, 122)
-                        .addComponent(btnVerClientes)))
-                .addContainerGap(115, Short.MAX_VALUE))
+                        .addGap(123, 123, 123)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnVerClientes))))
+                .addContainerGap(104, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(34, 34, 34)
+                .addGap(32, 32, 32)
                 .addComponent(btnHistorialCuenta)
-                .addGap(40, 40, 40)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnVerClientes)
-                .addContainerGap(98, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18))
         );
 
         tabbedPaneCustom1.addTab("Varios", jPanel3);
@@ -222,6 +269,8 @@ public class FrmMenuEmpleado extends javax.swing.JFrame {
     private javax.swing.JButton btnVerClientes;
     private javax.swing.JButton jButtonRegistroCliente;
     private javax.swing.JButton jButtonRegistroCuenta;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
