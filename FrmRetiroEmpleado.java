@@ -1,6 +1,7 @@
 
 import javax.swing.JOptionPane;
 
+import javax.swing.JOptionPane;
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -28,6 +29,18 @@ public class FrmRetiroEmpleado extends javax.swing.JFrame {
         this.banco=banco;
         this.gestor=gestor;
         setLocationRelativeTo(null); // Centrar ventana
+ * @author user
+ */
+public class FrmRetiroEmpleado extends javax.swing.JFrame {
+    CuentaCon cu = new CuentaCon();
+    TransaccionCon tc = new TransaccionCon();
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmRetiroEmpleado.class.getName());
+
+    /**
+     * Creates new form FrmRetiroEmpleado1
+     */
+    public FrmRetiroEmpleado() {
+        initComponents();
     }
 
     /**
@@ -128,6 +141,30 @@ public class FrmRetiroEmpleado extends javax.swing.JFrame {
                 .addComponent(btnConfirmar)
                 .addGap(23, 23, 23))
         );
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        txtIdCliente = new javax.swing.JTextField();
+        txtIdCuenta = new javax.swing.JTextField();
+        txtMonto = new javax.swing.JTextField();
+        btnConfirmar = new javax.swing.JButton();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setText("\"Retiro Bancario\"");
+
+        jLabel2.setText("ID Cliente:");
+
+        jLabel3.setText("ID Cuenta:");
+
+        jLabel4.setText("Monto a retirar: ");
+
+        btnConfirmar.setText("Confirmar");
+        btnConfirmar.addActionListener(this::btnConfirmarActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -149,6 +186,54 @@ public class FrmRetiroEmpleado extends javax.swing.JFrame {
 
     private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {
     try {
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2)
+                            .addComponent(txtIdCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4)
+                                    .addComponent(txtIdCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtMonto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(169, 169, 169)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnConfirmar)
+                            .addComponent(jLabel1))))
+                .addContainerGap(141, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtIdCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(13, 13, 13)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtIdCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtMonto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnConfirmar)
+                .addContainerGap(27, Short.MAX_VALUE))
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
+        try {
         String idCliente = txtIdCliente.getText();
         String idCuenta = txtIdCuenta.getText();
         String textoMonto = txtMonto.getText();
@@ -189,6 +274,14 @@ public class FrmRetiroEmpleado extends javax.swing.JFrame {
 
 
     // Variables declaration                      
+    }//GEN-LAST:event_btnConfirmarActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
+    
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConfirmar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -199,4 +292,8 @@ public class FrmRetiroEmpleado extends javax.swing.JFrame {
     private javax.swing.JTextField txtIdCuenta;
     private javax.swing.JTextField txtMonto;
     // End of variables declaration                   
+    private javax.swing.JTextField txtIdCliente;
+    private javax.swing.JTextField txtIdCuenta;
+    private javax.swing.JTextField txtMonto;
+    // End of variables declaration//GEN-END:variables
 }

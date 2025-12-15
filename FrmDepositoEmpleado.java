@@ -1,6 +1,7 @@
 
 import javax.swing.JOptionPane;
 
+import javax.swing.JOptionPane;
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -28,6 +29,18 @@ public class FrmDepositoEmpleado extends javax.swing.JFrame {
         this.banco=banco;
         this.gestor=gestor;
         setLocationRelativeTo(null); // Centrar ventana
+ * @author user
+ */
+public class FrmDepositoEmpleado extends javax.swing.JFrame {
+    CuentaCon cu = new CuentaCon();
+    TransaccionCon tc = new TransaccionCon();
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmDepositoEmpleado.class.getName());
+
+    /**
+     * Creates new form FrmDepositoEmpleado1
+     */
+    public FrmDepositoEmpleado() {
+        initComponents();
     }
 
     /**
@@ -125,6 +138,30 @@ public class FrmDepositoEmpleado extends javax.swing.JFrame {
                 .addComponent(btnConfirmar)
                 .addGap(19, 19, 19))
         );
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        btnConfirmar = new javax.swing.JButton();
+        txtIdCliente = new javax.swing.JTextField();
+        txtIdCuenta = new javax.swing.JTextField();
+        txtMonto = new javax.swing.JTextField();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setText("Depósito Bancario");
+
+        jLabel2.setText("ID Cliente:");
+
+        jLabel3.setText("ID Cuenta:");
+
+        jLabel4.setText("Monto a Depositar");
+
+        btnConfirmar.setText("Confirmar");
+        btnConfirmar.addActionListener(this::btnConfirmarActionPerformed);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -146,6 +183,51 @@ public class FrmDepositoEmpleado extends javax.swing.JFrame {
 
     private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {
     try {
+            .addGroup(layout.createSequentialGroup()
+                .addGap(52, 52, 52)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(104, 104, 104)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(btnConfirmar)))
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel4)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(txtIdCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtIdCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtMonto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(148, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtIdCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23)
+                .addComponent(jLabel3)
+                .addGap(10, 10, 10)
+                .addComponent(txtIdCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtMonto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnConfirmar)
+                .addGap(30, 30, 30))
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
+        try {
         String idCliente = txtIdCliente.getText();
         String idCuenta = txtIdCuenta.getText();
         String textoMonto = txtMonto.getText();
@@ -187,6 +269,14 @@ public class FrmDepositoEmpleado extends javax.swing.JFrame {
 
 
     // Variables declaration                   
+    }//GEN-LAST:event_btnConfirmarActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
+    
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConfirmar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -197,4 +287,8 @@ public class FrmDepositoEmpleado extends javax.swing.JFrame {
     private javax.swing.JTextField txtIdCuenta;
     private javax.swing.JTextField txtMonto;
     // End of variables declaration                   
+    private javax.swing.JTextField txtIdCliente;
+    private javax.swing.JTextField txtIdCuenta;
+    private javax.swing.JTextField txtMonto;
+    // End of variables declaration//GEN-END:variables
 }
